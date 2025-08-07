@@ -1,0 +1,1074 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>features package &mdash; Compare_LLMs 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Features" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Compare_LLMs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../context.html">Transformer Parameters Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../comparison_methods/modules.html">Comparison Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system_monitor/modules.html">System Monitor</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Features</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">features package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-features.abstract_feature">features.abstract_feature module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#features.abstract_feature.LLMFeature"><code class="docutils literal notranslate"><span class="pre">LLMFeature</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-features.generation_params">features.generation_params module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#features.generation_params.BatchSize"><code class="docutils literal notranslate"><span class="pre">BatchSize</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#features.generation_params.ContextLength"><code class="docutils literal notranslate"><span class="pre">ContextLength</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#features.generation_params.FrequencyPenalty"><code class="docutils literal notranslate"><span class="pre">FrequencyPenalty</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#features.generation_params.MaxTokens"><code class="docutils literal notranslate"><span class="pre">MaxTokens</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#features.generation_params.MinP"><code class="docutils literal notranslate"><span class="pre">MinP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#features.generation_params.Mirostat"><code class="docutils literal notranslate"><span class="pre">Mirostat</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#features.generation_params.MirostatEta"><code class="docutils literal notranslate"><span class="pre">MirostatEta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#features.generation_params.MirostatTau"><code class="docutils literal notranslate"><span class="pre">MirostatTau</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#features.generation_params.RepeatLastN"><code class="docutils literal notranslate"><span class="pre">RepeatLastN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#features.generation_params.Seed"><code class="docutils literal notranslate"><span class="pre">Seed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#features.generation_params.StopSequence"><code class="docutils literal notranslate"><span class="pre">StopSequence</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#features.generation_params.StreamChatResponse"><code class="docutils literal notranslate"><span class="pre">StreamChatResponse</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#features.generation_params.Temperature"><code class="docutils literal notranslate"><span class="pre">Temperature</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#features.generation_params.TfsZ"><code class="docutils literal notranslate"><span class="pre">TfsZ</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#features.generation_params.TopK"><code class="docutils literal notranslate"><span class="pre">TopK</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#features.generation_params.TopP"><code class="docutils literal notranslate"><span class="pre">TopP</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-features.system_params">features.system_params module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#features.system_params.NumGpu"><code class="docutils literal notranslate"><span class="pre">NumGpu</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#features.system_params.NumThread"><code class="docutils literal notranslate"><span class="pre">NumThread</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#features.system_params.UseMlock"><code class="docutils literal notranslate"><span class="pre">UseMlock</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#features.system_params.UseMmap"><code class="docutils literal notranslate"><span class="pre">UseMmap</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-features">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Compare_LLMs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Features</a></li>
+      <li class="breadcrumb-item active">features package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/features/features.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="features-package">
+<h1>features package<a class="headerlink" href="#features-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-features.abstract_feature">
+<span id="features-abstract-feature-module"></span><h2>features.abstract_feature module<a class="headerlink" href="#module-features.abstract_feature" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="features.abstract_feature.LLMFeature">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">features.abstract_feature.</span></span><span class="sig-name descname"><span class="pre">LLMFeature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#features.abstract_feature.LLMFeature" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Abstract base class representing an LLM (Large Language Model) feature.</p>
+<p>Attributes:
+- name: A string representing the name of the feature.
+- description: A string describing what the feature does.
+- param_type: A string indicating the type of parameter this feature represents,</p>
+<blockquote>
+<div><p>typically ‘generation’ for generation-related parameters or ‘system’
+for system parameters.</p>
+</div></blockquote>
+<p>Methods:
+- get_ollama_param_name() -&gt; str:</p>
+<blockquote>
+<div><p>Returns the Ollama API option name associated with this feature.
+This is used in the configuration files and API requests.</p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>get_test_values() -&gt; list:</dt><dd><p>Provides a set of values to be tested for this LLM feature.
+These values are useful for validation and testing purposes.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="features.abstract_feature.LLMFeature.get_ollama_param_name">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_ollama_param_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#features.abstract_feature.LLMFeature.get_ollama_param_name" title="Link to this definition"></a></dt>
+<dd><p>Returns the parameter name used in Ollama API options (e.g., ‘temperature’)
+or the Modelfile parameter name (e.g., ‘num_gpu’).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="features.abstract_feature.LLMFeature.get_test_values">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_test_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#features.abstract_feature.LLMFeature.get_test_values" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of values to test for this feature.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-features.generation_params">
+<span id="features-generation-params-module"></span><h2>features.generation_params module<a class="headerlink" href="#module-features.generation_params" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="features.generation_params.BatchSize">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">features.generation_params.</span></span><span class="sig-name descname"><span class="pre">BatchSize</span></span><a class="headerlink" href="#features.generation_params.BatchSize" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#features.abstract_feature.LLMFeature" title="features.abstract_feature.LLMFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">LLMFeature</span></code></a></p>
+<p>A class representing the configuration of batch size for prompt processing.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the feature.
+description (str): A brief description of the feature’s purpose.
+category (str): The category to which this feature belongs, typically ‘generation’.</p>
+</dd>
+<dt>Methods:</dt><dd><p>get_ollama_param_name() -&gt; str: Returns the Ollama parameter name for batch size configuration.
+get_test_values() -&gt; list: Returns a list of test values for batch size, suitable for typical use cases.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.BatchSize.get_ollama_param_name">
+<span class="sig-name descname"><span class="pre">get_ollama_param_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#features.generation_params.BatchSize.get_ollama_param_name" title="Link to this definition"></a></dt>
+<dd><p>Returns the Ollama parameter name for stopping text generation.</p>
+<p>This function is specifically designed to return the string ‘stop’ which is used as an argument in the Ollama API for specifying the termination criteria of text generation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.BatchSize.get_test_values">
+<span class="sig-name descname"><span class="pre">get_test_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#features.generation_params.BatchSize.get_test_values" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of test values representing different scenarios for handling stop sequences in text processing.</p>
+<blockquote>
+<div><p>Each element in the returned list contains a sequence that can be used to identify and process stops within a text string.
+- The first value is <cite>None</cite>, indicating no explicit stop sequences are present.
+- The second value, <a href="#id1"><span class="problematic" id="id2">`</span></a>[”</p>
+</div></blockquote>
+<dl class="simple">
+<dt>“]`, represents a newline character as the only stop sequence.</dt><dd><ul class="simple">
+<li><p>The third value, <a href="#id3"><span class="problematic" id="id4">`</span></a>[”</p></li>
+</ul>
+</dd>
+</dl>
+<p>“, “.”]`, indicates both a newline and a period as potential stop sequences.</p>
+<blockquote>
+<div><p>This function is useful for testing various text processing algorithms that need to identify and handle different types of delimiters.</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="features.generation_params.ContextLength">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">features.generation_params.</span></span><span class="sig-name descname"><span class="pre">ContextLength</span></span><a class="headerlink" href="#features.generation_params.ContextLength" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#features.abstract_feature.LLMFeature" title="features.abstract_feature.LLMFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">LLMFeature</span></code></a></p>
+<blockquote>
+<div><p>A class to represent and manage context length settings for an LLM.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the feature.
+description (str): A brief description of the feature’s purpose.
+type (str): The type of the feature, indicating its use in generation tasks.</p>
+</dd>
+<dt>Methods:</dt><dd><p>get_ollama_param_name() -&gt; str: Returns the Ollama parameter name for context length.
+get_test_values() -&gt; list: Provides test values for context length to ensure optimal performance and resource management. Be cautious with high values as they may consume more RAM.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>This docstring provides a clear overview of the <cite>ContextLength</cite> class, including its attributes, methods, and their purposes. The description explains the role of this feature in LLM generation tasks and mentions typical usage scenarios for Ollama.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.ContextLength.get_ollama_param_name">
+<span class="sig-name descname"><span class="pre">get_ollama_param_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#features.generation_params.ContextLength.get_ollama_param_name" title="Link to this definition"></a></dt>
+<dd><p>Returns the Ollama parameter name for stopping text generation.</p>
+<p>This function is specifically designed to return the string ‘stop’ which is used as an argument in the Ollama API for specifying the termination criteria of text generation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.ContextLength.get_test_values">
+<span class="sig-name descname"><span class="pre">get_test_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#features.generation_params.ContextLength.get_test_values" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of test values representing different scenarios for handling stop sequences in text processing.</p>
+<blockquote>
+<div><p>Each element in the returned list contains a sequence that can be used to identify and process stops within a text string.
+- The first value is <cite>None</cite>, indicating no explicit stop sequences are present.
+- The second value, <a href="#id5"><span class="problematic" id="id6">`</span></a>[”</p>
+</div></blockquote>
+<dl class="simple">
+<dt>“]`, represents a newline character as the only stop sequence.</dt><dd><ul class="simple">
+<li><p>The third value, <a href="#id7"><span class="problematic" id="id8">`</span></a>[”</p></li>
+</ul>
+</dd>
+</dl>
+<p>“, “.”]`, indicates both a newline and a period as potential stop sequences.</p>
+<blockquote>
+<div><p>This function is useful for testing various text processing algorithms that need to identify and handle different types of delimiters.</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="features.generation_params.FrequencyPenalty">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">features.generation_params.</span></span><span class="sig-name descname"><span class="pre">FrequencyPenalty</span></span><a class="headerlink" href="#features.generation_params.FrequencyPenalty" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#features.abstract_feature.LLMFeature" title="features.abstract_feature.LLMFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">LLMFeature</span></code></a></p>
+<p>Class for implementing the Frequency Penalty feature in LLMs.</p>
+<p>This class penalizes new tokens based on their existing frequency in the text so far,
+encouraging diverse and less repetitive generation of responses.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the feature, “FrequencyPenalty”.
+description (str): A detailed description of the feature’s purpose and effect.
+category (str): The category to which this feature belongs, “generation”.</p>
+</dd>
+<dt>Methods:</dt><dd><p>get_ollama_param_name() -&gt; str: Returns the Ollama parameter name for this feature.
+get_test_values() -&gt; list: Provides a list of test values for the Frequency Penalty, ranging from 0.0 to 1.0.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.FrequencyPenalty.get_ollama_param_name">
+<span class="sig-name descname"><span class="pre">get_ollama_param_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#features.generation_params.FrequencyPenalty.get_ollama_param_name" title="Link to this definition"></a></dt>
+<dd><p>Returns the Ollama parameter name for stopping text generation.</p>
+<p>This function is specifically designed to return the string ‘stop’ which is used as an argument in the Ollama API for specifying the termination criteria of text generation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.FrequencyPenalty.get_test_values">
+<span class="sig-name descname"><span class="pre">get_test_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#features.generation_params.FrequencyPenalty.get_test_values" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of test values representing different scenarios for handling stop sequences in text processing.</p>
+<blockquote>
+<div><p>Each element in the returned list contains a sequence that can be used to identify and process stops within a text string.
+- The first value is <cite>None</cite>, indicating no explicit stop sequences are present.
+- The second value, <a href="#id9"><span class="problematic" id="id10">`</span></a>[”</p>
+</div></blockquote>
+<dl class="simple">
+<dt>“]`, represents a newline character as the only stop sequence.</dt><dd><ul class="simple">
+<li><p>The third value, <a href="#id11"><span class="problematic" id="id12">`</span></a>[”</p></li>
+</ul>
+</dd>
+</dl>
+<p>“, “.”]`, indicates both a newline and a period as potential stop sequences.</p>
+<blockquote>
+<div><p>This function is useful for testing various text processing algorithms that need to identify and handle different types of delimiters.</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="features.generation_params.MaxTokens">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">features.generation_params.</span></span><span class="sig-name descname"><span class="pre">MaxTokens</span></span><a class="headerlink" href="#features.generation_params.MaxTokens" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#features.abstract_feature.LLMFeature" title="features.abstract_feature.LLMFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">LLMFeature</span></code></a></p>
+<p>Represents a feature that sets the maximum number of tokens to predict in an LLM response.</p>
+<p>Attributes:
+- name (str): The name of the feature as “MaxTokens”.
+- description (str): A brief description of the feature and its purpose, which is “Sets the maximum number of tokens to predict.”
+- category (str): The category of this feature, which is “generation”.</p>
+<p>Methods:
+- get_ollama_param_name() -&gt; str: Returns the Ollama parameter name associated with setting the maximum number of tokens.
+- get_test_values() -&gt; list: Provides a list of test values for validation and benchmarking, including 64, 128, and 256 tokens.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.MaxTokens.get_ollama_param_name">
+<span class="sig-name descname"><span class="pre">get_ollama_param_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#features.generation_params.MaxTokens.get_ollama_param_name" title="Link to this definition"></a></dt>
+<dd><p>Returns the Ollama parameter name for stopping text generation.</p>
+<p>This function is specifically designed to return the string ‘stop’ which is used as an argument in the Ollama API for specifying the termination criteria of text generation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.MaxTokens.get_test_values">
+<span class="sig-name descname"><span class="pre">get_test_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#features.generation_params.MaxTokens.get_test_values" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of test values representing different scenarios for handling stop sequences in text processing.</p>
+<blockquote>
+<div><p>Each element in the returned list contains a sequence that can be used to identify and process stops within a text string.
+- The first value is <cite>None</cite>, indicating no explicit stop sequences are present.
+- The second value, <a href="#id13"><span class="problematic" id="id14">`</span></a>[”</p>
+</div></blockquote>
+<dl class="simple">
+<dt>“]`, represents a newline character as the only stop sequence.</dt><dd><ul class="simple">
+<li><p>The third value, <a href="#id15"><span class="problematic" id="id16">`</span></a>[”</p></li>
+</ul>
+</dd>
+</dl>
+<p>“, “.”]`, indicates both a newline and a period as potential stop sequences.</p>
+<blockquote>
+<div><p>This function is useful for testing various text processing algorithms that need to identify and handle different types of delimiters.</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="features.generation_params.MinP">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">features.generation_params.</span></span><span class="sig-name descname"><span class="pre">MinP</span></span><a class="headerlink" href="#features.generation_params.MinP" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#features.abstract_feature.LLMFeature" title="features.abstract_feature.LLMFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">LLMFeature</span></code></a></p>
+<p>Class to configure the minimum probability for a token to be considered in text generation.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the configuration parameter, “MinP”.
+description (str): A brief description of the purpose and use of this configuration, “Sets the minimum probability for a token to be considered.”
+category (str): The category or type of configuration, “generation”.</p>
+</dd>
+<dt>Methods:</dt><dd><p>get_ollama_param_name() -&gt; str: Returns the name of the Ollama parameter associated with this configuration.
+get_test_values() -&gt; list: Provides a list of test values to verify and validate the configuration.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.MinP.get_ollama_param_name">
+<span class="sig-name descname"><span class="pre">get_ollama_param_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#features.generation_params.MinP.get_ollama_param_name" title="Link to this definition"></a></dt>
+<dd><p>Returns the Ollama parameter name for stopping text generation.</p>
+<p>This function is specifically designed to return the string ‘stop’ which is used as an argument in the Ollama API for specifying the termination criteria of text generation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.MinP.get_test_values">
+<span class="sig-name descname"><span class="pre">get_test_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#features.generation_params.MinP.get_test_values" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of test values representing different scenarios for handling stop sequences in text processing.</p>
+<blockquote>
+<div><p>Each element in the returned list contains a sequence that can be used to identify and process stops within a text string.
+- The first value is <cite>None</cite>, indicating no explicit stop sequences are present.
+- The second value, <a href="#id17"><span class="problematic" id="id18">`</span></a>[”</p>
+</div></blockquote>
+<dl class="simple">
+<dt>“]`, represents a newline character as the only stop sequence.</dt><dd><ul class="simple">
+<li><p>The third value, <a href="#id19"><span class="problematic" id="id20">`</span></a>[”</p></li>
+</ul>
+</dd>
+</dl>
+<p>“, “.”]`, indicates both a newline and a period as potential stop sequences.</p>
+<blockquote>
+<div><p>This function is useful for testing various text processing algorithms that need to identify and handle different types of delimiters.</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="features.generation_params.Mirostat">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">features.generation_params.</span></span><span class="sig-name descname"><span class="pre">Mirostat</span></span><a class="headerlink" href="#features.generation_params.Mirostat" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#features.abstract_feature.LLMFeature" title="features.abstract_feature.LLMFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">LLMFeature</span></code></a></p>
+<p>Mirostat is a method for controlling the perplexity of generated text using a learned model.</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>name (str): The name of the feature.
+description (str): A brief description of the feature’s purpose and its role in text generation.
+category (str): The category to which this feature belongs, typically “generation”.</p>
+</dd>
+<dt>Attributes:</dt><dd><p>ollama_param_name (str): The OLLAMA parameter name for Mirostat control.</p>
+</dd>
+<dt>Methods:</dt><dd><p>get_ollama_param_name() -&gt; str: Returns the OLLAMA parameter name for Mirostat.
+get_test_values() -&gt; list: Provides test values for the Mirostat feature, including disabled, Mirostat, and Mirostat 2.0 modes.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.Mirostat.get_ollama_param_name">
+<span class="sig-name descname"><span class="pre">get_ollama_param_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#features.generation_params.Mirostat.get_ollama_param_name" title="Link to this definition"></a></dt>
+<dd><p>Returns the Ollama parameter name for stopping text generation.</p>
+<p>This function is specifically designed to return the string ‘stop’ which is used as an argument in the Ollama API for specifying the termination criteria of text generation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.Mirostat.get_test_values">
+<span class="sig-name descname"><span class="pre">get_test_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#features.generation_params.Mirostat.get_test_values" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of test values representing different scenarios for handling stop sequences in text processing.</p>
+<blockquote>
+<div><p>Each element in the returned list contains a sequence that can be used to identify and process stops within a text string.
+- The first value is <cite>None</cite>, indicating no explicit stop sequences are present.
+- The second value, <a href="#id21"><span class="problematic" id="id22">`</span></a>[”</p>
+</div></blockquote>
+<dl class="simple">
+<dt>“]`, represents a newline character as the only stop sequence.</dt><dd><ul class="simple">
+<li><p>The third value, <a href="#id23"><span class="problematic" id="id24">`</span></a>[”</p></li>
+</ul>
+</dd>
+</dl>
+<p>“, “.”]`, indicates both a newline and a period as potential stop sequences.</p>
+<blockquote>
+<div><p>This function is useful for testing various text processing algorithms that need to identify and handle different types of delimiters.</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="features.generation_params.MirostatEta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">features.generation_params.</span></span><span class="sig-name descname"><span class="pre">MirostatEta</span></span><a class="headerlink" href="#features.generation_params.MirostatEta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#features.abstract_feature.LLMFeature" title="features.abstract_feature.LLMFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">LLMFeature</span></code></a></p>
+<p>MirostatEta class for setting the learning rate in the Mirostat algorithm.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the feature.
+description (str): A brief description of the feature’s purpose and use.
+data_type (str): The type of data that this feature can handle, typically ‘generation’.</p>
+</dd>
+<dt>Methods:</dt><dd><p>get_ollama_param_name() -&gt; str: Returns the Ollama parameter name associated with MirostatEta.
+get_test_values() -&gt; list: Returns a list of test values for the learning rate.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.MirostatEta.get_ollama_param_name">
+<span class="sig-name descname"><span class="pre">get_ollama_param_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#features.generation_params.MirostatEta.get_ollama_param_name" title="Link to this definition"></a></dt>
+<dd><p>Returns the Ollama parameter name for stopping text generation.</p>
+<p>This function is specifically designed to return the string ‘stop’ which is used as an argument in the Ollama API for specifying the termination criteria of text generation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.MirostatEta.get_test_values">
+<span class="sig-name descname"><span class="pre">get_test_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#features.generation_params.MirostatEta.get_test_values" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of test values representing different scenarios for handling stop sequences in text processing.</p>
+<blockquote>
+<div><p>Each element in the returned list contains a sequence that can be used to identify and process stops within a text string.
+- The first value is <cite>None</cite>, indicating no explicit stop sequences are present.
+- The second value, <a href="#id25"><span class="problematic" id="id26">`</span></a>[”</p>
+</div></blockquote>
+<dl class="simple">
+<dt>“]`, represents a newline character as the only stop sequence.</dt><dd><ul class="simple">
+<li><p>The third value, <a href="#id27"><span class="problematic" id="id28">`</span></a>[”</p></li>
+</ul>
+</dd>
+</dl>
+<p>“, “.”]`, indicates both a newline and a period as potential stop sequences.</p>
+<blockquote>
+<div><p>This function is useful for testing various text processing algorithms that need to identify and handle different types of delimiters.</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="features.generation_params.MirostatTau">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">features.generation_params.</span></span><span class="sig-name descname"><span class="pre">MirostatTau</span></span><a class="headerlink" href="#features.generation_params.MirostatTau" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#features.abstract_feature.LLMFeature" title="features.abstract_feature.LLMFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">LLMFeature</span></code></a></p>
+<p>Represents the Mirostat Tau value used in the Mirostat algorithm for controlling token sampling and perplexity.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the feature.
+description (str): A brief description of the Mirostat Tau parameter.
+category (str): The category under which this feature falls, such as “generation”.</p>
+</dd>
+<dt>Methods:</dt><dd><p>get_ollama_param_name() -&gt; str: Returns the Ollama parameter name associated with this feature.
+get_test_values() -&gt; list: Returns a list of default test values for Mirostat Tau.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.MirostatTau.get_ollama_param_name">
+<span class="sig-name descname"><span class="pre">get_ollama_param_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#features.generation_params.MirostatTau.get_ollama_param_name" title="Link to this definition"></a></dt>
+<dd><p>Returns the Ollama parameter name for stopping text generation.</p>
+<p>This function is specifically designed to return the string ‘stop’ which is used as an argument in the Ollama API for specifying the termination criteria of text generation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.MirostatTau.get_test_values">
+<span class="sig-name descname"><span class="pre">get_test_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#features.generation_params.MirostatTau.get_test_values" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of test values representing different scenarios for handling stop sequences in text processing.</p>
+<blockquote>
+<div><p>Each element in the returned list contains a sequence that can be used to identify and process stops within a text string.
+- The first value is <cite>None</cite>, indicating no explicit stop sequences are present.
+- The second value, <a href="#id29"><span class="problematic" id="id30">`</span></a>[”</p>
+</div></blockquote>
+<dl class="simple">
+<dt>“]`, represents a newline character as the only stop sequence.</dt><dd><ul class="simple">
+<li><p>The third value, <a href="#id31"><span class="problematic" id="id32">`</span></a>[”</p></li>
+</ul>
+</dd>
+</dl>
+<p>“, “.”]`, indicates both a newline and a period as potential stop sequences.</p>
+<blockquote>
+<div><p>This function is useful for testing various text processing algorithms that need to identify and handle different types of delimiters.</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="features.generation_params.RepeatLastN">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">features.generation_params.</span></span><span class="sig-name descname"><span class="pre">RepeatLastN</span></span><a class="headerlink" href="#features.generation_params.RepeatLastN" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#features.abstract_feature.LLMFeature" title="features.abstract_feature.LLMFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">LLMFeature</span></code></a></p>
+<p>Sets the model’s ability to repeat the last N tokens. 
+This feature helps prevent repetitive outputs by restricting the context length.</p>
+<p>Parameters:
+- repeat_last_n (int): The number of tokens to look back in the generated text for repetition prevention. Setting it to 0 disables this feature.</p>
+<p>Test Values:
+- [0, 32, 64]:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>0: Disables repetition prevention</p></li>
+<li><p>32: Limits the context length to the last 32 tokens</p></li>
+<li><p>64: Limits the context length to the last 64 tokens</p></li>
+</ul>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.RepeatLastN.get_ollama_param_name">
+<span class="sig-name descname"><span class="pre">get_ollama_param_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#features.generation_params.RepeatLastN.get_ollama_param_name" title="Link to this definition"></a></dt>
+<dd><p>Returns the Ollama parameter name for stopping text generation.</p>
+<p>This function is specifically designed to return the string ‘stop’ which is used as an argument in the Ollama API for specifying the termination criteria of text generation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.RepeatLastN.get_test_values">
+<span class="sig-name descname"><span class="pre">get_test_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#features.generation_params.RepeatLastN.get_test_values" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of test values representing different scenarios for handling stop sequences in text processing.</p>
+<blockquote>
+<div><p>Each element in the returned list contains a sequence that can be used to identify and process stops within a text string.
+- The first value is <cite>None</cite>, indicating no explicit stop sequences are present.
+- The second value, <a href="#id33"><span class="problematic" id="id34">`</span></a>[”</p>
+</div></blockquote>
+<dl class="simple">
+<dt>“]`, represents a newline character as the only stop sequence.</dt><dd><ul class="simple">
+<li><p>The third value, <a href="#id35"><span class="problematic" id="id36">`</span></a>[”</p></li>
+</ul>
+</dd>
+</dl>
+<p>“, “.”]`, indicates both a newline and a period as potential stop sequences.</p>
+<blockquote>
+<div><p>This function is useful for testing various text processing algorithms that need to identify and handle different types of delimiters.</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="features.generation_params.Seed">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">features.generation_params.</span></span><span class="sig-name descname"><span class="pre">Seed</span></span><a class="headerlink" href="#features.generation_params.Seed" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#features.abstract_feature.LLMFeature" title="features.abstract_feature.LLMFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">LLMFeature</span></code></a></p>
+<p>Class for setting the random seed for reproducibility.</p>
+<p>Attributes:
+- name (str): The name of the feature.
+- description (str): A brief description of the feature and its purpose.
+- category (str): The category or topic associated with this feature.</p>
+<p>Methods:
+- __init__(): Initializes the Seed class with a name, description, and category.
+- get_ollama_param_name() -&gt; str: Returns the parameter name used in Ollama to set the seed.
+- get_test_values() -&gt; list: Provides test values for comparing different seeds on generation variance.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.Seed.get_ollama_param_name">
+<span class="sig-name descname"><span class="pre">get_ollama_param_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#features.generation_params.Seed.get_ollama_param_name" title="Link to this definition"></a></dt>
+<dd><p>Returns the Ollama parameter name for stopping text generation.</p>
+<p>This function is specifically designed to return the string ‘stop’ which is used as an argument in the Ollama API for specifying the termination criteria of text generation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.Seed.get_test_values">
+<span class="sig-name descname"><span class="pre">get_test_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#features.generation_params.Seed.get_test_values" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of test values representing different scenarios for handling stop sequences in text processing.</p>
+<blockquote>
+<div><p>Each element in the returned list contains a sequence that can be used to identify and process stops within a text string.
+- The first value is <cite>None</cite>, indicating no explicit stop sequences are present.
+- The second value, <a href="#id37"><span class="problematic" id="id38">`</span></a>[”</p>
+</div></blockquote>
+<dl class="simple">
+<dt>“]`, represents a newline character as the only stop sequence.</dt><dd><ul class="simple">
+<li><p>The third value, <a href="#id39"><span class="problematic" id="id40">`</span></a>[”</p></li>
+</ul>
+</dd>
+</dl>
+<p>“, “.”]`, indicates both a newline and a period as potential stop sequences.</p>
+<blockquote>
+<div><p>This function is useful for testing various text processing algorithms that need to identify and handle different types of delimiters.</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="features.generation_params.StopSequence">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">features.generation_params.</span></span><span class="sig-name descname"><span class="pre">StopSequence</span></span><a class="headerlink" href="#features.generation_params.StopSequence" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#features.abstract_feature.LLMFeature" title="features.abstract_feature.LLMFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">LLMFeature</span></code></a></p>
+<p>A class that represents a list of strings used to stop text generation.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the feature, ‘StopSequence’.
+description (str): A brief description of what the feature does.
+type (str): The category or purpose of the feature, “generation”.</p>
+</dd>
+<dt>Methods:</dt><dd><p>get_ollama_param_name() -&gt; str: Returns the Ollama parameter name for this feature.
+get_test_values() -&gt; list: Provides test values for validation and examples of how to use this feature. Includes cases without stops, single stop sequences, and multiple stop sequences.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.StopSequence.get_ollama_param_name">
+<span class="sig-name descname"><span class="pre">get_ollama_param_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#features.generation_params.StopSequence.get_ollama_param_name" title="Link to this definition"></a></dt>
+<dd><p>Returns the Ollama parameter name for stopping text generation.</p>
+<p>This function is specifically designed to return the string ‘stop’ which is used as an argument in the Ollama API for specifying the termination criteria of text generation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.StopSequence.get_test_values">
+<span class="sig-name descname"><span class="pre">get_test_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#features.generation_params.StopSequence.get_test_values" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of test values representing different scenarios for handling stop sequences in text processing.</p>
+<blockquote>
+<div><p>Each element in the returned list contains a sequence that can be used to identify and process stops within a text string.
+- The first value is <cite>None</cite>, indicating no explicit stop sequences are present.
+- The second value, <a href="#id41"><span class="problematic" id="id42">`</span></a>[”</p>
+</div></blockquote>
+<dl class="simple">
+<dt>“]`, represents a newline character as the only stop sequence.</dt><dd><ul class="simple">
+<li><p>The third value, <a href="#id43"><span class="problematic" id="id44">`</span></a>[”</p></li>
+</ul>
+</dd>
+</dl>
+<p>“, “.”]`, indicates both a newline and a period as potential stop sequences.</p>
+<blockquote>
+<div><p>This function is useful for testing various text processing algorithms that need to identify and handle different types of delimiters.</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="features.generation_params.StreamChatResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">features.generation_params.</span></span><span class="sig-name descname"><span class="pre">StreamChatResponse</span></span><a class="headerlink" href="#features.generation_params.StreamChatResponse" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#features.abstract_feature.LLMFeature" title="features.abstract_feature.LLMFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">LLMFeature</span></code></a></p>
+<p>Determines if the response from the Ollama LLM service should be streamed token by token.</p>
+<p>This feature simulates streaming behavior for comparison purposes, using <cite>stream=True</cite>.
+It measures metrics such as first_token_latency during streaming to evaluate its impact on performance.</p>
+<p>For direct comparisons (stream=True vs stream=False), you would need to modify the Ollama client’s
+<cite>chat</cite> method to handle these cases separately.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the feature, “StreamChatResponse”.
+description (str): A brief description of the feature, “Determines if response is streamed token by token.”
+category (str): The category of the feature, “generation”.</p>
+</dd>
+<dt>Methods:</dt><dd><p>get_ollama_param_name() -&gt; str: Returns a dummy name for identification purposes.
+get_test_values() -&gt; list: Provides test values for streaming, including stream=True.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.StreamChatResponse.get_ollama_param_name">
+<span class="sig-name descname"><span class="pre">get_ollama_param_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#features.generation_params.StreamChatResponse.get_ollama_param_name" title="Link to this definition"></a></dt>
+<dd><p>Returns the Ollama parameter name for stopping text generation.</p>
+<p>This function is specifically designed to return the string ‘stop’ which is used as an argument in the Ollama API for specifying the termination criteria of text generation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.StreamChatResponse.get_test_values">
+<span class="sig-name descname"><span class="pre">get_test_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#features.generation_params.StreamChatResponse.get_test_values" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of test values representing different scenarios for handling stop sequences in text processing.</p>
+<blockquote>
+<div><p>Each element in the returned list contains a sequence that can be used to identify and process stops within a text string.
+- The first value is <cite>None</cite>, indicating no explicit stop sequences are present.
+- The second value, <a href="#id45"><span class="problematic" id="id46">`</span></a>[”</p>
+</div></blockquote>
+<dl class="simple">
+<dt>“]`, represents a newline character as the only stop sequence.</dt><dd><ul class="simple">
+<li><p>The third value, <a href="#id47"><span class="problematic" id="id48">`</span></a>[”</p></li>
+</ul>
+</dd>
+</dl>
+<p>“, “.”]`, indicates both a newline and a period as potential stop sequences.</p>
+<blockquote>
+<div><p>This function is useful for testing various text processing algorithms that need to identify and handle different types of delimiters.</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="features.generation_params.Temperature">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">features.generation_params.</span></span><span class="sig-name descname"><span class="pre">Temperature</span></span><a class="headerlink" href="#features.generation_params.Temperature" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#features.abstract_feature.LLMFeature" title="features.abstract_feature.LLMFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">LLMFeature</span></code></a></p>
+<p>Controls the randomness of the output.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The feature’s name.
+description (str): A brief description of the feature and its purpose.
+category (str): The category to which this feature belongs.</p>
+</dd>
+<dt>Methods:</dt><dd><p>get_ollama_param_name() -&gt; str: Returns the Ollama parameter name associated with this feature.
+get_test_values() -&gt; list: Provides a list of test values for this feature.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.Temperature.get_ollama_param_name">
+<span class="sig-name descname"><span class="pre">get_ollama_param_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#features.generation_params.Temperature.get_ollama_param_name" title="Link to this definition"></a></dt>
+<dd><p>Returns the Ollama parameter name for stopping text generation.</p>
+<p>This function is specifically designed to return the string ‘stop’ which is used as an argument in the Ollama API for specifying the termination criteria of text generation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.Temperature.get_test_values">
+<span class="sig-name descname"><span class="pre">get_test_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#features.generation_params.Temperature.get_test_values" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of test values representing different scenarios for handling stop sequences in text processing.</p>
+<blockquote>
+<div><p>Each element in the returned list contains a sequence that can be used to identify and process stops within a text string.
+- The first value is <cite>None</cite>, indicating no explicit stop sequences are present.
+- The second value, <a href="#id49"><span class="problematic" id="id50">`</span></a>[”</p>
+</div></blockquote>
+<dl class="simple">
+<dt>“]`, represents a newline character as the only stop sequence.</dt><dd><ul class="simple">
+<li><p>The third value, <a href="#id51"><span class="problematic" id="id52">`</span></a>[”</p></li>
+</ul>
+</dd>
+</dl>
+<p>“, “.”]`, indicates both a newline and a period as potential stop sequences.</p>
+<blockquote>
+<div><p>This function is useful for testing various text processing algorithms that need to identify and handle different types of delimiters.</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="features.generation_params.TfsZ">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">features.generation_params.</span></span><span class="sig-name descname"><span class="pre">TfsZ</span></span><a class="headerlink" href="#features.generation_params.TfsZ" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#features.abstract_feature.LLMFeature" title="features.abstract_feature.LLMFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">LLMFeature</span></code></a></p>
+<p>TfsZ feature for LLMs.</p>
+<p>Attributes:
+- name: “TfsZ”
+- description: “Tail Free Sampling parameter. Higher values reduce the impact of less probable tokens.”
+- category: “generation”</p>
+<p>Methods:
+- get_ollama_param_name(): Returns “tfs_z”.
+- get_test_values(): Returns a list of test values for TFS-Z, including 0.0, 0.5, and 1.0.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.TfsZ.get_ollama_param_name">
+<span class="sig-name descname"><span class="pre">get_ollama_param_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#features.generation_params.TfsZ.get_ollama_param_name" title="Link to this definition"></a></dt>
+<dd><p>Returns the Ollama parameter name for stopping text generation.</p>
+<p>This function is specifically designed to return the string ‘stop’ which is used as an argument in the Ollama API for specifying the termination criteria of text generation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.TfsZ.get_test_values">
+<span class="sig-name descname"><span class="pre">get_test_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#features.generation_params.TfsZ.get_test_values" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of test values representing different scenarios for handling stop sequences in text processing.</p>
+<blockquote>
+<div><p>Each element in the returned list contains a sequence that can be used to identify and process stops within a text string.
+- The first value is <cite>None</cite>, indicating no explicit stop sequences are present.
+- The second value, <a href="#id53"><span class="problematic" id="id54">`</span></a>[”</p>
+</div></blockquote>
+<dl class="simple">
+<dt>“]`, represents a newline character as the only stop sequence.</dt><dd><ul class="simple">
+<li><p>The third value, <a href="#id55"><span class="problematic" id="id56">`</span></a>[”</p></li>
+</ul>
+</dd>
+</dl>
+<p>“, “.”]`, indicates both a newline and a period as potential stop sequences.</p>
+<blockquote>
+<div><p>This function is useful for testing various text processing algorithms that need to identify and handle different types of delimiters.</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="features.generation_params.TopK">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">features.generation_params.</span></span><span class="sig-name descname"><span class="pre">TopK</span></span><a class="headerlink" href="#features.generation_params.TopK" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#features.abstract_feature.LLMFeature" title="features.abstract_feature.LLMFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">LLMFeature</span></code></a></p>
+<p>A class to handle the ‘TopK’ LLM feature.</p>
+<p>This class is designed to limit the vocabulary for token selection to the top K tokens.
+It provides functionality to retrieve the Ollama parameter name and test values for this feature.</p>
+<dl>
+<dt>Attributes:</dt><dd><p>name (str): The name of the feature, which is “TopK”.
+description (str): A brief description of the feature, specifying that it limits</p>
+<blockquote>
+<div><p>token selection to the top K tokens.</p>
+</div></blockquote>
+<p>category (str): The category of the feature, which is “generation”.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.TopK.get_ollama_param_name">
+<span class="sig-name descname"><span class="pre">get_ollama_param_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#features.generation_params.TopK.get_ollama_param_name" title="Link to this definition"></a></dt>
+<dd><p>Returns the Ollama parameter name for stopping text generation.</p>
+<p>This function is specifically designed to return the string ‘stop’ which is used as an argument in the Ollama API for specifying the termination criteria of text generation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.TopK.get_test_values">
+<span class="sig-name descname"><span class="pre">get_test_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#features.generation_params.TopK.get_test_values" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of test values representing different scenarios for handling stop sequences in text processing.</p>
+<blockquote>
+<div><p>Each element in the returned list contains a sequence that can be used to identify and process stops within a text string.
+- The first value is <cite>None</cite>, indicating no explicit stop sequences are present.
+- The second value, <a href="#id57"><span class="problematic" id="id58">`</span></a>[”</p>
+</div></blockquote>
+<dl class="simple">
+<dt>“]`, represents a newline character as the only stop sequence.</dt><dd><ul class="simple">
+<li><p>The third value, <a href="#id59"><span class="problematic" id="id60">`</span></a>[”</p></li>
+</ul>
+</dd>
+</dl>
+<p>“, “.”]`, indicates both a newline and a period as potential stop sequences.</p>
+<blockquote>
+<div><p>This function is useful for testing various text processing algorithms that need to identify and handle different types of delimiters.</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="features.generation_params.TopP">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">features.generation_params.</span></span><span class="sig-name descname"><span class="pre">TopP</span></span><a class="headerlink" href="#features.generation_params.TopP" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#features.abstract_feature.LLMFeature" title="features.abstract_feature.LLMFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">LLMFeature</span></code></a></p>
+<p>Implements the ‘TopP’ strategy for controlling text generation in LLMs.</p>
+<p>This feature selects the smallest set of tokens whose cumulative probability exceeds a specified threshold (p).
+A value of 1.0 includes all tokens, while 0.0 disables it (or uses model default).</p>
+<p>Parameters:
+- name: The name of the feature.
+- description: A brief description of how the feature works.
+- category: The category this feature belongs to in the LLM generation process.</p>
+<p>Methods:
+- get_ollama_param_name(): Returns the OLLAMA-specific parameter name for TopP.
+- get_test_values(): Provides a list of test values for TopP, including 0.0 (disabled), 0.5, 0.9, and 1.0 (includes all tokens).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.TopP.get_ollama_param_name">
+<span class="sig-name descname"><span class="pre">get_ollama_param_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#features.generation_params.TopP.get_ollama_param_name" title="Link to this definition"></a></dt>
+<dd><p>Returns the Ollama parameter name for stopping text generation.</p>
+<p>This function is specifically designed to return the string ‘stop’ which is used as an argument in the Ollama API for specifying the termination criteria of text generation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="features.generation_params.TopP.get_test_values">
+<span class="sig-name descname"><span class="pre">get_test_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#features.generation_params.TopP.get_test_values" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of test values representing different scenarios for handling stop sequences in text processing.</p>
+<blockquote>
+<div><p>Each element in the returned list contains a sequence that can be used to identify and process stops within a text string.
+- The first value is <cite>None</cite>, indicating no explicit stop sequences are present.
+- The second value, <a href="#id61"><span class="problematic" id="id62">`</span></a>[”</p>
+</div></blockquote>
+<dl class="simple">
+<dt>“]`, represents a newline character as the only stop sequence.</dt><dd><ul class="simple">
+<li><p>The third value, <a href="#id63"><span class="problematic" id="id64">`</span></a>[”</p></li>
+</ul>
+</dd>
+</dl>
+<p>“, “.”]`, indicates both a newline and a period as potential stop sequences.</p>
+<blockquote>
+<div><p>This function is useful for testing various text processing algorithms that need to identify and handle different types of delimiters.</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-features.system_params">
+<span id="features-system-params-module"></span><h2>features.system_params module<a class="headerlink" href="#module-features.system_params" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="features.system_params.NumGpu">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">features.system_params.</span></span><span class="sig-name descname"><span class="pre">NumGpu</span></span><a class="headerlink" href="#features.system_params.NumGpu" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#features.abstract_feature.LLMFeature" title="features.abstract_feature.LLMFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">LLMFeature</span></code></a></p>
+<p>Represents the configuration for offloading a certain number of layers to the GPU.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the feature, typically ‘NumGpu’.
+description (str): A brief description of the feature, explaining its purpose and usage.
+category (str): The category of the feature, likely ‘system’.</p>
+</dd>
+<dt>Methods:</dt><dd><p>get_ollama_param_name() -&gt; str: Returns the parameter name used in the Ollama configuration file for this feature.
+get_test_values() -&gt; list: Provides a list of test values to evaluate this feature’s performance and effectiveness. These values can vary based on the GPU capabilities and model size, with 99 often representing “all layers possible.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="features.system_params.NumGpu.get_ollama_param_name">
+<span class="sig-name descname"><span class="pre">get_ollama_param_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#features.system_params.NumGpu.get_ollama_param_name" title="Link to this definition"></a></dt>
+<dd><p>Returns the parameter name used in the Ollama model file.</p>
+<p>This method returns ‘num_gpu’, which is a configuration parameter that specifies the number of GPUs to use when running an AI model. The value returned by this function is commonly referenced in the Modelfile used with the Ollama AI platform for training and inference tasks.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="features.system_params.NumGpu.get_test_values">
+<span class="sig-name descname"><span class="pre">get_test_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#features.system_params.NumGpu.get_test_values" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the test values for a specific configuration.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>list: A list containing two values. The first value is determined by the GPU and model size, with 0 indicating CPU-only use.</dt><dd><p>The second value is often set to 99, which may represent “all layers possible” or a similar concept depending on context.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="features.system_params.NumThread">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">features.system_params.</span></span><span class="sig-name descname"><span class="pre">NumThread</span></span><a class="headerlink" href="#features.system_params.NumThread" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#features.abstract_feature.LLMFeature" title="features.abstract_feature.LLMFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">LLMFeature</span></code></a></p>
+<p>A class representing the number of threads to use for computation.</p>
+<p>Attributes:
+- model_name (str): The name of the LLM feature.
+- description (str): A description of the LLM feature and its purpose.
+- category (str): The category of the LLM feature, typically ‘system’.</p>
+<p>Methods:
+- get_ollama_param_name() -&gt; str: Returns the Ollama parameter name for the number of threads.
+- get_test_values() -&gt; list: Returns a list of example thread counts to test.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="features.system_params.NumThread.get_ollama_param_name">
+<span class="sig-name descname"><span class="pre">get_ollama_param_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#features.system_params.NumThread.get_ollama_param_name" title="Link to this definition"></a></dt>
+<dd><p>Returns the parameter name used in the Ollama model file.</p>
+<p>This method returns ‘num_gpu’, which is a configuration parameter that specifies the number of GPUs to use when running an AI model. The value returned by this function is commonly referenced in the Modelfile used with the Ollama AI platform for training and inference tasks.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="features.system_params.NumThread.get_test_values">
+<span class="sig-name descname"><span class="pre">get_test_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#features.system_params.NumThread.get_test_values" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the test values for a specific configuration.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>list: A list containing two values. The first value is determined by the GPU and model size, with 0 indicating CPU-only use.</dt><dd><p>The second value is often set to 99, which may represent “all layers possible” or a similar concept depending on context.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="features.system_params.UseMlock">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">features.system_params.</span></span><span class="sig-name descname"><span class="pre">UseMlock</span></span><a class="headerlink" href="#features.system_params.UseMlock" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#features.abstract_feature.LLMFeature" title="features.abstract_feature.LLMFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">LLMFeature</span></code></a></p>
+<p>A feature to control whether the model is locked into RAM (preventing swapping).</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><ul class="simple">
+<li><p>name: “UseMlock”
+description: Whether to lock model into RAM.
+category: system</p></li>
+</ul>
+</dd>
+<dt>Methods:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>get_ollama_param_name() -&gt; str</dt><dd><p>Returns the parameter name used in Modelfile, which is “use_mlock”.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>get_test_values() -&gt; list</dt><dd><p>Provides test values for use in testing, including [True, False].</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="features.system_params.UseMlock.get_ollama_param_name">
+<span class="sig-name descname"><span class="pre">get_ollama_param_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#features.system_params.UseMlock.get_ollama_param_name" title="Link to this definition"></a></dt>
+<dd><p>Returns the parameter name used in the Ollama model file.</p>
+<p>This method returns ‘num_gpu’, which is a configuration parameter that specifies the number of GPUs to use when running an AI model. The value returned by this function is commonly referenced in the Modelfile used with the Ollama AI platform for training and inference tasks.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="features.system_params.UseMlock.get_test_values">
+<span class="sig-name descname"><span class="pre">get_test_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#features.system_params.UseMlock.get_test_values" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the test values for a specific configuration.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>list: A list containing two values. The first value is determined by the GPU and model size, with 0 indicating CPU-only use.</dt><dd><p>The second value is often set to 99, which may represent “all layers possible” or a similar concept depending on context.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="features.system_params.UseMmap">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">features.system_params.</span></span><span class="sig-name descname"><span class="pre">UseMmap</span></span><a class="headerlink" href="#features.system_params.UseMmap" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#features.abstract_feature.LLMFeature" title="features.abstract_feature.LLMFeature"><code class="xref py py-class docutils literal notranslate"><span class="pre">LLMFeature</span></code></a></p>
+<p>Class to control whether to use memory mapping for loading models.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the feature (“UseMmap”).
+description (str): A description of the feature and its purpose (“Whether to use mmap for model loading (performance/memory).”).
+category (str): The category of the feature in Ollama (“system”).</p>
+</dd>
+<dt>Methods:</dt><dd><p>get_ollama_param_name() -&gt; str: Returns the name of the parameter used in the Modelfile.
+get_test_values() -&gt; list: Returns a list of boolean values to test, indicating whether to use mmap for model loading.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="features.system_params.UseMmap.get_ollama_param_name">
+<span class="sig-name descname"><span class="pre">get_ollama_param_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#features.system_params.UseMmap.get_ollama_param_name" title="Link to this definition"></a></dt>
+<dd><p>Returns the parameter name used in the Ollama model file.</p>
+<p>This method returns ‘num_gpu’, which is a configuration parameter that specifies the number of GPUs to use when running an AI model. The value returned by this function is commonly referenced in the Modelfile used with the Ollama AI platform for training and inference tasks.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="features.system_params.UseMmap.get_test_values">
+<span class="sig-name descname"><span class="pre">get_test_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#features.system_params.UseMmap.get_test_values" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the test values for a specific configuration.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>list: A list containing two values. The first value is determined by the GPU and model size, with 0 indicating CPU-only use.</dt><dd><p>The second value is often set to 99, which may represent “all layers possible” or a similar concept depending on context.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-features">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-features" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, computiphy.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

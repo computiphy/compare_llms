@@ -1,0 +1,221 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transformer Parameters Documentation &mdash; Compare_LLMs 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Comparison Methods" href="comparison_methods/modules.html" />
+    <link rel="prev" title="Compare LLMs documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Compare_LLMs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Transformer Parameters Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#transformer-parameters">Transformer Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#metrics">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#comparison-visualization">Comparison Visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="comparison_methods/modules.html">Comparison Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system_monitor/modules.html">System Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features/modules.html">Features</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Compare_LLMs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Transformer Parameters Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/context.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="transformer-parameters-documentation">
+<h1>Transformer Parameters Documentation<a class="headerlink" href="#transformer-parameters-documentation" title="Link to this heading"></a></h1>
+<p>This document provides concise explanations of key parameters and metrics used when configuring and evaluating transformer-based language models. It is intended to guide users in understanding and tuning model behavior effectively.</p>
+<section id="transformer-parameters">
+<h2>Transformer Parameters<a class="headerlink" href="#transformer-parameters" title="Link to this heading"></a></h2>
+<p><strong>Stream Chat Response</strong>
+Enables incremental output generation, streaming tokens as they are produced.</p>
+<p><strong>Seed</strong>
+Controls randomness by setting a deterministic seed for reproducibility.</p>
+<p><strong>Stop Sequence</strong>
+A string or list of strings. Generation halts if any are encountered in output.</p>
+<p><strong>Temperature</strong>
+Controls randomness in generation. Lower values make output more deterministic.</p>
+<p><strong>Mirostat</strong>
+Enables Mirostat sampling, an adaptive algorithm for maintaining target perplexity.</p>
+<p><strong>Mirostat Eta</strong>
+Learning rate used in the Mirostat sampling algorithm to adjust output entropy.</p>
+<p><strong>Mirostat Tau</strong>
+Target entropy (surprise) level for Mirostat sampling to maintain controlled creativity.</p>
+<p><strong>Top K</strong>
+Limits sampling to the top K most probable tokens. Lower K reduces diversity.</p>
+<p><strong>Top P</strong>
+Enables nucleus sampling. Chooses from smallest token set with cumulative probability &gt;= P.</p>
+<p><strong>Min P</strong>
+Minimum cumulative probability threshold for candidate token selection.</p>
+<p><strong>Frequency Penalty</strong>
+Penalizes repeated tokens based on frequency in generated output.</p>
+<p><strong>Repeat Last N</strong>
+Limits consideration of last N tokens to discourage repetition.</p>
+<p><strong>Tfs Z</strong>
+Tail-Free Sampling parameter that adjusts sampling by removing unlikely tokens.</p>
+<p><strong>Context Length</strong>
+Maximum number of tokens the model considers in its attention window.</p>
+<p><strong>Batch Size (num_batch)</strong>
+Number of prompts processed simultaneously. Impacts throughput.</p>
+<p><strong>Tokens To Keep On Context Refresh (num_keep)</strong>
+Number of initial tokens retained during context refresh to maintain coherence.</p>
+<p><strong>Max Tokens (num_predict)</strong>
+Upper limit on the number of tokens the model will generate in a response.</p>
+<p><strong>use_mmap (Ollama)</strong>
+Enables memory mapping of model weights to reduce memory load.</p>
+<p><strong>use_mlock (Ollama)</strong>
+Locks model in RAM to prevent swapping, improving latency stability.</p>
+<p><strong>num_thread (Ollama)</strong>
+Number of CPU threads used during inference.</p>
+<p><strong>num_gpu (Ollama)</strong>
+Number of GPUs allocated for model execution.</p>
+</section>
+<section id="metrics">
+<h2>Metrics<a class="headerlink" href="#metrics" title="Link to this heading"></a></h2>
+<p><strong>response_quality</strong>
+Subjective or algorithmic assessment of output relevance, correctness, and coherence.</p>
+<p><strong>latency</strong>
+Time (in seconds) from prompt submission to initial token output.</p>
+<p><strong>token_count</strong>
+Total number of tokens generated in the response.</p>
+<p><strong>tokens_per_second</strong>
+Token generation rate, measuring model throughput.</p>
+<p><strong>response_length</strong>
+Length of the output measured in characters or tokens.</p>
+<p><strong>prompt_tokens</strong>
+Number of tokens in the input prompt.</p>
+<p><strong>completion_tokens</strong>
+Number of tokens generated by the model in response.</p>
+<p><strong>load_duration_s</strong>
+Time taken (in seconds) to load the model into memory.</p>
+<p><strong>eval_duration_s</strong>
+Total evaluation time (in seconds) for producing a response.</p>
+<p><strong>quality_score</strong>
+Aggregated metric representing the model’s accuracy, fluency, or task performance.</p>
+<p><strong>cpu_percent_eval_avg</strong>
+Average CPU usage percentage during model evaluation.</p>
+<p><strong>cpu_percent_eval_max</strong>
+Peak CPU usage percentage during model evaluation.</p>
+<p><strong>gpu_percent_eval_avg</strong>
+Average GPU utilization during model inference.</p>
+<p><strong>gpu_percent_eval_max</strong>
+Peak GPU usage during evaluation.</p>
+<p><strong>total_ram_gb_eval_avg</strong>
+Average total system RAM used during model evaluation.</p>
+<p><strong>total_ram_gb_eval_max</strong>
+Maximum system RAM usage during evaluation.</p>
+<p><strong>used_ram_gb_eval_avg</strong>
+Average RAM consumed specifically by the model during evaluation.</p>
+<p><strong>used_ram_gb_eval_max</strong>
+Peak model memory usage during evaluation.</p>
+</section>
+<section id="comparison-visualization">
+<h2>Comparison Visualization<a class="headerlink" href="#comparison-visualization" title="Link to this heading"></a></h2>
+<p><strong>tabular comparison</strong>
+Structured side-by-side listing of parameter values or metrics across models.</p>
+<p><strong>scatter plot</strong>
+Plots individual data points to show relationships between two variables.</p>
+<p><strong>line chart</strong>
+Depicts changes or trends in metrics over time or configurations.</p>
+<p><strong>parallel coordinates</strong>
+Visualizes multi-dimensional data across multiple axes for feature comparison.</p>
+<p><strong>histogram</strong>
+Shows the distribution of a single metric or parameter value.</p>
+<p><strong>correlation heat map</strong>
+Matrix representation showing correlation coefficients among multiple metrics.</p>
+<p><strong>box plot</strong>
+Displays distribution characteristics (median, quartiles, outliers) of metrics.</p>
+<p><strong>bar chart comparison</strong>
+Side-by-side bar charts showing metric values for easy comparison.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Compare LLMs documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="comparison_methods/modules.html" class="btn btn-neutral float-right" title="Comparison Methods" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, computiphy.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
