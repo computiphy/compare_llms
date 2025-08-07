@@ -116,7 +116,7 @@ Make sure you have the following packages:
 ### Run the Framework
 
 ```bash
-python main.py
+python main.py --model llama3.2:latest --feature_config_file feature_config.json --prompts_file prompts.txt --iterations 1
 ```
 
 ---
