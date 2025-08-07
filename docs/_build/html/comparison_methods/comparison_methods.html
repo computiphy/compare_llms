@@ -1,0 +1,649 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>comparison_methods package &mdash; Compare_LLMs 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="System Monitor" href="../system_monitor/modules.html" />
+    <link rel="prev" title="Comparison Methods" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Compare_LLMs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../context.html">Transformer Parameters Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Comparison Methods</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">comparison_methods package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-comparison_methods.abstract_comparison">comparison_methods.abstract_comparison module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#comparison_methods.abstract_comparison.ComparisonMethod"><code class="docutils literal notranslate"><span class="pre">ComparisonMethod</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-comparison_methods.bar_chart_comparison">comparison_methods.bar_chart_comparison module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#comparison_methods.bar_chart_comparison.BarChartComparison"><code class="docutils literal notranslate"><span class="pre">BarChartComparison</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-comparison_methods.base_comparison">comparison_methods.base_comparison module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#comparison_methods.base_comparison.ComparisonMethod"><code class="docutils literal notranslate"><span class="pre">ComparisonMethod</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-comparison_methods.box_plot_comparison">comparison_methods.box_plot_comparison module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#comparison_methods.box_plot_comparison.BoxPlotComparison"><code class="docutils literal notranslate"><span class="pre">BoxPlotComparison</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-comparison_methods.correlation_heatmap_comparison">comparison_methods.correlation_heatmap_comparison module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#comparison_methods.correlation_heatmap_comparison.CorrelationHeatmapComparison"><code class="docutils literal notranslate"><span class="pre">CorrelationHeatmapComparison</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-comparison_methods.histogram_comparison">comparison_methods.histogram_comparison module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#comparison_methods.histogram_comparison.HistogramComparison"><code class="docutils literal notranslate"><span class="pre">HistogramComparison</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-comparison_methods.line_chart_comparison">comparison_methods.line_chart_comparison module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#comparison_methods.line_chart_comparison.LineChartComparison"><code class="docutils literal notranslate"><span class="pre">LineChartComparison</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#comparison-methods-network-graph-comparison-module">comparison_methods.network_graph_comparison module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-comparison_methods.parallel_coordinates_comparison">comparison_methods.parallel_coordinates_comparison module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#comparison_methods.parallel_coordinates_comparison.ParallelCoordinatesComparison"><code class="docutils literal notranslate"><span class="pre">ParallelCoordinatesComparison</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-comparison_methods.pie_chart_comparison">comparison_methods.pie_chart_comparison module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#comparison_methods.pie_chart_comparison.PieChartComparison"><code class="docutils literal notranslate"><span class="pre">PieChartComparison</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-comparison_methods.scatter_plot_comparison">comparison_methods.scatter_plot_comparison module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#comparison_methods.scatter_plot_comparison.ScatterPlotComparison"><code class="docutils literal notranslate"><span class="pre">ScatterPlotComparison</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-comparison_methods.table_comparison">comparison_methods.table_comparison module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#comparison_methods.table_comparison.TableComparison"><code class="docutils literal notranslate"><span class="pre">TableComparison</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-comparison_methods.treemap_comparison">comparison_methods.treemap_comparison module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#comparison_methods.treemap_comparison.TreemapComparison"><code class="docutils literal notranslate"><span class="pre">TreemapComparison</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-comparison_methods">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../system_monitor/modules.html">System Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../features/modules.html">Features</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Compare_LLMs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Comparison Methods</a></li>
+      <li class="breadcrumb-item active">comparison_methods package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/comparison_methods/comparison_methods.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="comparison-methods-package">
+<h1>comparison_methods package<a class="headerlink" href="#comparison-methods-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-comparison_methods.abstract_comparison">
+<span id="comparison-methods-abstract-comparison-module"></span><h2>comparison_methods.abstract_comparison module<a class="headerlink" href="#module-comparison_methods.abstract_comparison" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="comparison_methods.abstract_comparison.ComparisonMethod">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">comparison_methods.abstract_comparison.</span></span><span class="sig-name descname"><span class="pre">ComparisonMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#comparison_methods.abstract_comparison.ComparisonMethod" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<dl class="simple">
+<dt>self.name = name</dt><dd><p>self.description = description</p>
+</dd>
+</dl>
+<p>&#64;abstractmethod
+def visualize(self, data: pd.DataFrame, feature_name: str, metric_name: str, title: str, output_path: str):</p>
+<blockquote>
+<div><p>Visualizes the data using the specific comparison method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">param data<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DataFrame containing experiment results.</p>
+</dd>
+<dt class="field-even">param feature_name<span class="colon">:</span></dt>
+<dd class="field-even"><p>Column name for the LLM feature being varied (X-axis).</p>
+</dd>
+<dt class="field-odd">param metric_name<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Column name for the metric being plotted (Y-axis).</p>
+</dd>
+<dt class="field-even">param title<span class="colon">:</span></dt>
+<dd class="field-even"><p>Title for the visualization.</p>
+</dd>
+<dt class="field-odd">param output_path<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Path to save the generated plot/table.</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="comparison_methods.abstract_comparison.ComparisonMethod.visualize">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">visualize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#comparison_methods.abstract_comparison.ComparisonMethod.visualize" title="Link to this definition"></a></dt>
+<dd><p>Visualizes the data using the specific comparison method.
+:param data: DataFrame containing experiment results.
+:param feature_name: Column name for the LLM feature being varied (X-axis).
+:param metric_name: Column name for the metric being plotted (Y-axis).
+:param title: Title for the visualization.
+:param output_path: Path to save the generated plot/table.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-comparison_methods.bar_chart_comparison">
+<span id="comparison-methods-bar-chart-comparison-module"></span><h2>comparison_methods.bar_chart_comparison module<a class="headerlink" href="#module-comparison_methods.bar_chart_comparison" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="comparison_methods.bar_chart_comparison.BarChartComparison">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">comparison_methods.bar_chart_comparison.</span></span><span class="sig-name descname"><span class="pre">BarChartComparison</span></span><a class="headerlink" href="#comparison_methods.bar_chart_comparison.BarChartComparison" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#comparison_methods.base_comparison.ComparisonMethod" title="comparison_methods.base_comparison.ComparisonMethod"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComparisonMethod</span></code></a></p>
+<p>Generates bar charts comparing metrics across different LLM generation parameters.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The unique identifier for this comparison method.
+description (str): A brief description of the comparison method’s functionality and purpose.</p>
+</dd>
+<dt>Methods:</dt><dd><dl class="simple">
+<dt>__init__():</dt><dd><p>Initializes a new instance of BarChartComparison with its unique name and description.</p>
+</dd>
+<dt>compare(data: pd.DataFrame, metrics_to_measure: list[str], output_dir: str) -&gt; dict:</dt><dd><p>Compares the specified metrics across different parameter combinations in the provided data.
+Outputs bar charts to the specified directory.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="comparison_methods.bar_chart_comparison.BarChartComparison.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics_to_measure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#comparison_methods.bar_chart_comparison.BarChartComparison.compare" title="Link to this definition"></a></dt>
+<dd><dl>
+<dt>self,</dt><dd><p>data: pd.DataFrame,   # The input DataFrame containing comparison data.
+metrics_to_measure: list[str],  # A list of metrics to measure and plot.
+output_dir: str            # Directory where the generated bar charts will be saved.</p>
+</dd>
+<dt>) -&gt; dict:</dt><dd><p>Generates bar charts for each specified metric in the provided DataFrame.</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><ul class="simple">
+<li><p>data: pd.DataFrame, the input dataset with columns such as ‘param_combination’ and metrics to measure.</p></li>
+<li><p>metrics_to_measure: list[str], a list of strings representing the metrics to plot.</p></li>
+<li><p>output_dir: str, directory path where generated bar charts will be saved.</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>dict: A dictionary containing generated plots for each metric.</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-comparison_methods.base_comparison">
+<span id="comparison-methods-base-comparison-module"></span><h2>comparison_methods.base_comparison module<a class="headerlink" href="#module-comparison_methods.base_comparison" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="comparison_methods.base_comparison.ComparisonMethod">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">comparison_methods.base_comparison.</span></span><span class="sig-name descname"><span class="pre">ComparisonMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#comparison_methods.base_comparison.ComparisonMethod" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Abstract base class for all comparison methods.
+Each comparison method should inherit from this class and implement
+the ‘compare’ method.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="comparison_methods.base_comparison.ComparisonMethod.compare">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#comparison_methods.base_comparison.ComparisonMethod.compare" title="Link to this definition"></a></dt>
+<dd><p>Performs the comparison and analysis for a specific method.</p>
+<dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>data (pd.DataFrame): The raw experiment results collected from LLM runs.</dt><dd><p>This DataFrame should contain columns like ‘model’,
+‘prompt’, ‘iteration’, ‘generated_text’, and various metrics.</p>
+</dd>
+<dt>features (list): A list of feature/metric names (strings) that are</dt><dd><p>relevant to this comparison method.</p>
+</dd>
+<dt>output_dir (str): The directory where any method-specific outputs (e.g., plots,</dt><dd><p>intermediate files) should be saved.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl>
+<dt>dict: A dictionary containing results to be included in the HTML report.</dt><dd><p>Expected keys:
+- ‘aggregated_data’: (Optional) A pandas DataFrame or string representing</p>
+<blockquote>
+<div><p>aggregated data to display in a table.</p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>‘plots’: (Optional) A dictionary where keys are plot titles (str)</dt><dd><p>and values are matplotlib Figure objects.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>‘sample_outputs’: (Optional) A dictionary where keys are prompts (str)</dt><dd><p>and values are generated texts (str) for qualitative review.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-comparison_methods.box_plot_comparison">
+<span id="comparison-methods-box-plot-comparison-module"></span><h2>comparison_methods.box_plot_comparison module<a class="headerlink" href="#module-comparison_methods.box_plot_comparison" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="comparison_methods.box_plot_comparison.BoxPlotComparison">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">comparison_methods.box_plot_comparison.</span></span><span class="sig-name descname"><span class="pre">BoxPlotComparison</span></span><a class="headerlink" href="#comparison_methods.box_plot_comparison.BoxPlotComparison" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#comparison_methods.base_comparison.ComparisonMethod" title="comparison_methods.base_comparison.ComparisonMethod"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComparisonMethod</span></code></a></p>
+<p>Generates box plots to compare metric distributions across parameter combinations.</p>
+<dl>
+<dt>Attributes:</dt><dd><p>method_name (str): The name of the comparison method.
+description (str): A brief description of the functionality of the class.</p>
+</dd>
+<dt>Methods:</dt><dd><p>__init__(): Initializes a new instance of BoxPlotComparison.
+compare(data: pd.DataFrame, metrics_to_measure: list[str], output_dir: str) -&gt; dict:</p>
+<blockquote>
+<div><p>Compares metric distributions across parameter combinations and generates box plots.
+Saves each plot as a PNG file in the specified directory and returns a dictionary
+containing the generated figures.</p>
+</div></blockquote>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="comparison_methods.box_plot_comparison.BoxPlotComparison.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics_to_measure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#comparison_methods.box_plot_comparison.BoxPlotComparison.compare" title="Link to this definition"></a></dt>
+<dd><p>Generate box plots for specified metrics in the provided DataFrame.</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><ul class="simple">
+<li><p>data (pd.DataFrame): The input DataFrame containing data.</p></li>
+<li><p>metrics_to_measure (list[str]): A list of metric names to generate box plots for.</p></li>
+<li><p>output_dir (str): Directory where generated box plot images will be saved.</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><p>dict: A dictionary containing the generated box plots as Matplotlib figures.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-comparison_methods.correlation_heatmap_comparison">
+<span id="comparison-methods-correlation-heatmap-comparison-module"></span><h2>comparison_methods.correlation_heatmap_comparison module<a class="headerlink" href="#module-comparison_methods.correlation_heatmap_comparison" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="comparison_methods.correlation_heatmap_comparison.CorrelationHeatmapComparison">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">comparison_methods.correlation_heatmap_comparison.</span></span><span class="sig-name descname"><span class="pre">CorrelationHeatmapComparison</span></span><a class="headerlink" href="#comparison_methods.correlation_heatmap_comparison.CorrelationHeatmapComparison" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#comparison_methods.base_comparison.ComparisonMethod" title="comparison_methods.base_comparison.ComparisonMethod"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComparisonMethod</span></code></a></p>
+<p>Class for generating a heatmap showing correlations between all numeric features and metrics.</p>
+<p>This method calculates the correlation matrix of numeric columns in the input DataFrame and generates a heatmap
+using a diverging colormap to visualize the relationships between different features. The heatmap includes annotations
+for each cell, formatted with two decimal places, and has customized tick labels and color bar settings to ensure it
+looks good on dark backgrounds.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="comparison_methods.correlation_heatmap_comparison.CorrelationHeatmapComparison.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics_to_measure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#comparison_methods.correlation_heatmap_comparison.CorrelationHeatmapComparison.compare" title="Link to this definition"></a></dt>
+<dd><p>Perform a correlation heatmap comparison on the given DataFrame.</p>
+<p>This function calculates and visualizes the correlation matrix of numeric columns in the DataFrame.
+It generates a heatmap that annotates each cell with the correlation coefficient and uses a diverging colormap
+to represent positive and negative correlations. The plot is saved to the specified output directory.</p>
+<p>Parameters:
+- data (pd.DataFrame): The input dataset containing numerical features and metrics.
+- metrics_to_measure (list[str]): A list of column names for which the correlation heatmap should be generated.
+- output_dir (str): The directory where the heatmap image will be saved.</p>
+<p>Returns:
+- dict: A dictionary containing a single plot entry with the title ‘Correlation Heatmap’.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-comparison_methods.histogram_comparison">
+<span id="comparison-methods-histogram-comparison-module"></span><h2>comparison_methods.histogram_comparison module<a class="headerlink" href="#module-comparison_methods.histogram_comparison" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="comparison_methods.histogram_comparison.HistogramComparison">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">comparison_methods.histogram_comparison.</span></span><span class="sig-name descname"><span class="pre">HistogramComparison</span></span><a class="headerlink" href="#comparison_methods.histogram_comparison.HistogramComparison" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#comparison_methods.base_comparison.ComparisonMethod" title="comparison_methods.base_comparison.ComparisonMethod"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComparisonMethod</span></code></a></p>
+<p>Generates histograms for each metric to show their distribution.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the comparison method.
+description (str): A brief description of what this comparison does.</p>
+</dd>
+<dt>Methods:</dt><dd><dl class="simple">
+<dt>compare(data: pd.DataFrame, metrics_to_measure: list[str], output_dir: str) -&gt; dict:</dt><dd><p>Generates histograms for the specified metrics and saves them to the output directory.
+Returns a dictionary containing the generated plots.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="comparison_methods.histogram_comparison.HistogramComparison.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics_to_measure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#comparison_methods.histogram_comparison.HistogramComparison.compare" title="Link to this definition"></a></dt>
+<dd><p>Generates histograms for the specified numeric metrics in the input DataFrame and saves them to the output directory.</p>
+<p>Parameters:
+- data (pd.DataFrame): The input DataFrame containing the data to analyze.
+- metrics_to_measure (list[str]): A list of metric names to create histograms for. These should be present as columns in the DataFrame.
+- output_dir (str): The directory where the histogram plots will be saved.</p>
+<p>Returns:
+- dict: A dictionary containing a key ‘plots’ with a value being a dictionary mapping plot titles to matplotlib figure objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-comparison_methods.line_chart_comparison">
+<span id="comparison-methods-line-chart-comparison-module"></span><h2>comparison_methods.line_chart_comparison module<a class="headerlink" href="#module-comparison_methods.line_chart_comparison" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="comparison_methods.line_chart_comparison.LineChartComparison">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">comparison_methods.line_chart_comparison.</span></span><span class="sig-name descname"><span class="pre">LineChartComparison</span></span><a class="headerlink" href="#comparison_methods.line_chart_comparison.LineChartComparison" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#comparison_methods.base_comparison.ComparisonMethod" title="comparison_methods.base_comparison.ComparisonMethod"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComparisonMethod</span></code></a></p>
+<p>A class to generate line charts that illustrate metric trends across parameter combinations.</p>
+<p>Parameters:
+- name (str): The name of the comparison method.
+- description (str): A brief description of the functionality of the method.</p>
+<p>Methods:
+- __init__(): Initializes the LineChartComparison class with a name and description.
+- compare(data: pd.DataFrame, metrics_to_measure: list[str], output_dir: str) -&gt; dict:</p>
+<blockquote>
+<div><p>Compares data to generate line charts for specified metrics. It aggregates data by parameter combinations,
+sorts it, and creates line charts for each metric. The method handles missing or non-numeric data and warnings
+for the presence of ‘param_combination’ column. Each chart is saved in the specified output directory.</p>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="comparison_methods.line_chart_comparison.LineChartComparison.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics_to_measure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#comparison_methods.line_chart_comparison.LineChartComparison.compare" title="Link to this definition"></a></dt>
+<dd><p>Compares and generates line charts for the specified metrics across different parameter combinations.</p>
+<p>Parameters:
+- data (pd.DataFrame): The input DataFrame containing necessary columns such as ‘param_combination’.
+- metrics_to_measure (list[str]): A list of metric names to be compared.
+- output_dir (str): The directory where generated line chart images will be saved.</p>
+<p>Returns:
+- dict: A dictionary containing the plot objects with keys like “Line Chart: Metric Name”.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="comparison-methods-network-graph-comparison-module">
+<h2>comparison_methods.network_graph_comparison module<a class="headerlink" href="#comparison-methods-network-graph-comparison-module" title="Link to this heading"></a></h2>
+</section>
+<section id="module-comparison_methods.parallel_coordinates_comparison">
+<span id="comparison-methods-parallel-coordinates-comparison-module"></span><h2>comparison_methods.parallel_coordinates_comparison module<a class="headerlink" href="#module-comparison_methods.parallel_coordinates_comparison" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="comparison_methods.parallel_coordinates_comparison.ParallelCoordinatesComparison">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">comparison_methods.parallel_coordinates_comparison.</span></span><span class="sig-name descname"><span class="pre">ParallelCoordinatesComparison</span></span><a class="headerlink" href="#comparison_methods.parallel_coordinates_comparison.ParallelCoordinatesComparison" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#comparison_methods.base_comparison.ComparisonMethod" title="comparison_methods.base_comparison.ComparisonMethod"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComparisonMethod</span></code></a></p>
+<p>A comparison method that generates parallel coordinates plots for multi-dimensional comparison of features and metrics.</p>
+<p>The class performs the following steps:
+- Identifies numeric columns (features and metrics) from the input data.
+- Excludes ‘iteration’ as it is not a feature or metric of interest.
+- Normalizes data to a 0-1 range for better visualization in parallel coordinates plots.
+- Generates parallel coordinates plots with parameter combinations as colors, using Matplotlib’s <cite>parallel_coordinates</cite> function.
+- Saves the generated plot as an image file and returns the plot information.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="comparison_methods.parallel_coordinates_comparison.ParallelCoordinatesComparison.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics_to_measure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#comparison_methods.parallel_coordinates_comparison.ParallelCoordinatesComparison.compare" title="Link to this definition"></a></dt>
+<dd><p>Generates a Parallel Coordinates Plot of features and metrics by parameter combination.</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><ul class="simple">
+<li><p>data (pd.DataFrame): The dataset to analyze.</p></li>
+<li><p>metrics_to_measure (list[str]): A list of columns that are metrics to include in the plot.</p></li>
+<li><p>output_dir (str): Directory where plots will be saved.</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><p>dict: A dictionary containing the generated plot(s).</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-comparison_methods.pie_chart_comparison">
+<span id="comparison-methods-pie-chart-comparison-module"></span><h2>comparison_methods.pie_chart_comparison module<a class="headerlink" href="#module-comparison_methods.pie_chart_comparison" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="comparison_methods.pie_chart_comparison.PieChartComparison">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">comparison_methods.pie_chart_comparison.</span></span><span class="sig-name descname"><span class="pre">PieChartComparison</span></span><a class="headerlink" href="#comparison_methods.pie_chart_comparison.PieChartComparison" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#comparison_methods.base_comparison.ComparisonMethod" title="comparison_methods.base_comparison.ComparisonMethod"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComparisonMethod</span></code></a></p>
+<p>Generates a pie chart to visualize categorical distributions of data.</p>
+<p>This class is designed to compare and analyze categorical data, particularly in scenarios where traditional bar charts
+may not be suitable due to the limited applicability of pie charts. It uses <cite>matplotlib</cite> for plotting and assumes that
+categorical data can be represented as integer categories or strings.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the comparison method.
+description (str): A brief description of the comparison method’s purpose and limitations.</p>
+</dd>
+<dt>Methods:</dt><dd><dl class="simple">
+<dt>compare(data: pd.DataFrame, metrics_to_measure: list[str], output_dir: str) -&gt; dict:</dt><dd><p>Compares the provided data against predefined metrics and generates a pie chart for categorical distributions.
+Returns a dictionary containing generated plots with their filenames as keys.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="comparison_methods.pie_chart_comparison.PieChartComparison.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics_to_measure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#comparison_methods.pie_chart_comparison.PieChartComparison.compare" title="Link to this definition"></a></dt>
+<dd><p>Generates a PieChartComparison based on the ‘quality_score’ metric in the provided DataFrame.</p>
+<p>This function prints a message about the limited applicability of pie charts for this type of data and proceeds to create a pie chart
+if the ‘quality_score’ column exists and is numeric. The resulting plot is saved to the specified output directory with a unique filename.</p>
+<p>Parameters:
+- data (pd.DataFrame): The DataFrame containing the dataset to analyze.
+- metrics_to_measure (list[str]): A list of metric names to measure, although this function currently focuses on ‘quality_score’.
+- output_dir (str): The directory where the generated plot will be saved.</p>
+<p>Returns:
+- dict: A dictionary containing a single key-value pair with the plot type as the key and the Matplotlib figure object as the value.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-comparison_methods.scatter_plot_comparison">
+<span id="comparison-methods-scatter-plot-comparison-module"></span><h2>comparison_methods.scatter_plot_comparison module<a class="headerlink" href="#module-comparison_methods.scatter_plot_comparison" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="comparison_methods.scatter_plot_comparison.ScatterPlotComparison">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">comparison_methods.scatter_plot_comparison.</span></span><span class="sig-name descname"><span class="pre">ScatterPlotComparison</span></span><a class="headerlink" href="#comparison_methods.scatter_plot_comparison.ScatterPlotComparison" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#comparison_methods.base_comparison.ComparisonMethod" title="comparison_methods.base_comparison.ComparisonMethod"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComparisonMethod</span></code></a></p>
+<p>Generates scatter plots for all combinations of features against metrics.</p>
+<p>The class performs the following actions:
+- Identifies numeric feature columns that are not part of standard non-parameter columns or metrics.
+- Heuristically determines feature columns based on numeric data types and excludes standard or metric columns.
+- Creates a list of all possible pairs of features and metrics to plot, including additional useful metric vs. metric plots if applicable.
+- Generates scatter plots for each pair using the <cite>matplotlib</cite> library.
+- Optionally colors points by parameter combinations if available.
+- Saves each plot as a PNG file in the specified output directory and returns a dictionary containing all generated plots.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="comparison_methods.scatter_plot_comparison.ScatterPlotComparison.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics_to_measure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#comparison_methods.scatter_plot_comparison.ScatterPlotComparison.compare" title="Link to this definition"></a></dt>
+<dd><p>Perform scatter plot comparisons between LLM generation parameters and metrics.</p>
+<p>This function generates scatter plots for each feature-metric combination specified in <cite>metrics_to_measure</cite>.
+It includes additional heuristic checks to determine which columns are considered as LLM parameters
+(numeric columns that are not standard metrics or fixed identifiers).</p>
+<p>If there are no suitable features or metrics, the function skips generating scatter plots and returns an empty dictionary.</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>data (pd.DataFrame): The input DataFrame containing the dataset.
+metrics_to_measure (list[str]): A list of metric names to include in the scatter plots.
+output_dir (str): The directory where generated scatter plot images will be saved.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: A dictionary containing the generated scatter plots, indexed by plot titles.</p>
+</dd>
+<dt>Notes:</dt><dd><ul class="simple">
+<li><p>If ‘param_combination’ is a column and has multiple unique values, it uses a colormap to differentiate
+between different parameter sets.</p></li>
+<li><p>The function also checks for missing data and invalid numeric types before generating plots.</p></li>
+<li><p>Scatter plots are saved with appropriate file names in the specified output directory.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-comparison_methods.table_comparison">
+<span id="comparison-methods-table-comparison-module"></span><h2>comparison_methods.table_comparison module<a class="headerlink" href="#module-comparison_methods.table_comparison" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="comparison_methods.table_comparison.TableComparison">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">comparison_methods.table_comparison.</span></span><span class="sig-name descname"><span class="pre">TableComparison</span></span><a class="headerlink" href="#comparison_methods.table_comparison.TableComparison" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#comparison_methods.base_comparison.ComparisonMethod" title="comparison_methods.base_comparison.ComparisonMethod"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComparisonMethod</span></code></a></p>
+<p>Class for comparing LLM performance across different parameters and metrics by generating a summarized table.</p>
+<dl>
+<dt>Attributes:</dt><dd><p>name (str): The name of the comparison method.
+description (str): A description of what the comparison method does.</p>
+</dd>
+<dt>Methods:</dt><dd><dl>
+<dt>compare(data: pd.DataFrame, metrics_to_measure: list[str], output_dir: str) -&gt; dict:</dt><dd><p>Compares LLM performance based on specified parameters and metrics, generating a table with aggregated results.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>data (pd.DataFrame): The dataset containing performance metrics.
+metrics_to_measure (list[str]): A list of metric names to compare.
+output_dir (str): The directory where the generated table will be saved.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: A dictionary containing the aggregated data and a message indicating the save path.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="comparison_methods.table_comparison.TableComparison.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics_to_measure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#comparison_methods.table_comparison.TableComparison.compare" title="Link to this definition"></a></dt>
+<dd><dl>
+<dt>self,</dt><dd><p>data: pd.DataFrame,
+metrics_to_measure: list[str],
+output_dir: str</p>
+</dd>
+<dt>) -&gt; dict:</dt><dd><p>Performs a table comparison on the given DataFrame.</p>
+<p>This function aggregates the provided DataFrame based on specified metrics and parameters. It processes the data to handle missing values, format numeric metrics for better readability, and save the aggregated results to a CSV file in the specified output directory. The function also includes warning messages if certain columns are missing from the DataFrame.</p>
+<p>Parameters:
+- data (pd.DataFrame): The DataFrame containing the dataset to be compared.
+- metrics_to_measure (list[str]): A list of metric names to include in the comparison.
+- output_dir (str): The directory where the aggregated table will be saved.</p>
+<p>Returns:
+dict: A dictionary containing the aggregated DataFrame with formatted numeric metrics.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-comparison_methods.treemap_comparison">
+<span id="comparison-methods-treemap-comparison-module"></span><h2>comparison_methods.treemap_comparison module<a class="headerlink" href="#module-comparison_methods.treemap_comparison" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="comparison_methods.treemap_comparison.TreemapComparison">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">comparison_methods.treemap_comparison.</span></span><span class="sig-name descname"><span class="pre">TreemapComparison</span></span><a class="headerlink" href="#comparison_methods.treemap_comparison.TreemapComparison" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#comparison_methods.base_comparison.ComparisonMethod" title="comparison_methods.base_comparison.ComparisonMethod"><code class="xref py py-class docutils literal notranslate"><span class="pre">ComparisonMethod</span></code></a></p>
+<p>Generates a treemap comparison plot for hierarchical data. 
+This class is designed to visualize the proportion of total duration by parameter combination, 
+using a mock hierarchical structure due to the limitations of its data structure.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the comparison method.
+description (str): A brief description of the comparison method.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="comparison_methods.treemap_comparison.TreemapComparison.compare">
+<span class="sig-name descname"><span class="pre">compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics_to_measure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#comparison_methods.treemap_comparison.TreemapComparison.compare" title="Link to this definition"></a></dt>
+<dd><p>Perform a TreemapComparison on the given DataFrame.</p>
+<p>This function generates a visual representation of hierarchical data using a treemap. It is particularly useful for demonstrating how to visualize proportions or values in a hierarchical structure when the data lacks clear hierarchy. The function aggregates the specified metrics and creates a treemap based on the average duration of each parameter combination, which is then saved as a PNG image in the specified output directory.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>data (pd.DataFrame): The input DataFrame containing the necessary columns for visualization.
+metrics_to_measure (list[str]): A list of column names to include in the comparison. In this case, it should include ‘total_duration_s’ and ‘param_combination’.
+output_dir (str): The directory where the generated treemap image will be saved.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: A dictionary containing a single key-value pair, where the key is “plots” and the value is a dictionary with the treemap figure as its value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-comparison_methods">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-comparison_methods" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="Comparison Methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../system_monitor/modules.html" class="btn btn-neutral float-right" title="System Monitor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, computiphy.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

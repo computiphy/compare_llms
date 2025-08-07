@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Comparison Report - {{ model_name }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300,400,500,700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        /* Material 3 Dark Mode inspired color palette */
+        :root {
+            --md-sys-color-primary: #D0BCFF; /* Light violet for primary elements */
+            --md-sys-color-on-primary: #381E72;
+            --md-sys-color-primary-container: #4F378B;
+            --md-sys-color-on-primary-container: #EADDFF;
+
+            --md-sys-color-secondary: #CCC2DC; /* Light grayish violet */
+            --md-sys-color-on-secondary: #332D41;
+            --md-sys-color-secondary-container: #4A4458;
+            --md-sys-color-on-secondary-container: #E8DEF8;
+
+            --md-sys-color-tertiary: #EFB8C8; /* Light rosy brown */
+            --md-sys-color-on-tertiary: #492532;
+            --md-sys-color-tertiary-container: #633B48;
+            --md-sys-color-on-tertiary-container: #FFD8E4;
+
+            --md-sys-color-surface: #1C1B1F; /* Darkest background for main content */
+            --md-sys-color-on-surface: #E6E1E5; /* Lightest text color */
+            --md-sys-color-surface-variant: #49454F; /* Slightly lighter dark background/borders */
+            --md-sys-color-on-surface-variant: #CAC4D0; /* Secondary light text */
+
+            --md-sys-color-outline: #938F99; /* Mid-gray for subtle borders */
+            --md-sys-color-background: #1C1B1F; /* Main darkest background */
+            --md-sys-color-on-background: #E6E1E5; /* Main light text */
+            --md-sys-color-error: #F2B8B5; /* Error red */
+            --md-sys-color-error-container: #8C1D18;
+            --md-sys-color-on-error-container: #F9DEDC;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--md-sys-color-background);
+            color: var(--md-sys-color-on-background);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background: var(--md-sys-color-surface);
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Darker, slightly more visible shadow for depth */
+        }
+        h1, h2, h3, h4, h5 {
+            color: var(--md-sys-color-primary);
+            font-weight: 500;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        h1 { 
+            font-size: 2.5em; 
+            font-weight: 700; 
+            color: var(--md-sys-color-on-surface); /* Main title stays on_surface */
+        } 
+        h2 { 
+            font-size: 2em; 
+            border-bottom: 2px solid var(--md-sys-color-outline); 
+            padding-bottom: 0.2em; 
+            margin-bottom: 1em;
+        }
+        h3 { 
+            font-size: 1.6em; 
+            color: var(--md-sys-color-secondary); /* Use secondary for method titles */
+        } 
+        h4 { 
+            font-size: 1.3em; 
+            color: var(--md-sys-color-on-surface); 
+            font-weight: 500; 
+        }
+        h5 { 
+            font-size: 1.1em; 
+            color: var(--md-sys-color-on-surface-variant); 
+            font-weight: 400; 
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Subtle shadow for tables in dark mode */
+        }
+        th, td {
+            border: 1px solid var(--md-sys-color-surface-variant); /* Borders match surface variant */
+            padding: 12px 16px;
+            text-align: left;
+            font-size: 0.95em;
+            color: var(--md-sys-color-on-surface);
+        }
+        th {
+            background-color: var(--md-sys-color-surface-variant); /* Header background */
+            color: var(--md-sys-color-on-surface-variant); /* Header text */
+            font-weight: 500;
+        }
+        tr:nth-child(even) {
+            background-color: var(--md-sys-color-surface); /* Keep even rows with main surface color */
+        }
+        tr:nth-child(odd) {
+            background-color: var(--md-sys-color-surface);
+        }
+        /* Hover effect for rows */
+        tr:hover {
+            background-color: var(--md-sys-color-primary-container); /* Darker primary container for hover */
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 24px;
+            background-color: var(--md-sys-color-surface); /* Consistent with container */
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.25); /* Softer shadow */
+        }
+        .plot-container {
+            text-align: center;
+            margin-top: 24px;
+            margin-bottom: 24px;
+            background-color: var(--md-sys-color-surface-variant); /* Background for plots */
+            padding: 16px;
+            border-radius: 8px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15); /* Slightly more visible shadow on dark */
+        }
+        pre {
+            background-color: var(--md-sys-color-surface-variant); /* Code background */
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9em;
+            color: var(--md-sys-color-on-surface-variant);
+            border: 1px solid var(--md-sys-color-outline);
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        p strong {
+            color: var(--md-sys-color-on-surface);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .container { padding: 16px; }
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.6em; }
+            h3 { font-size: 1.3em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LLM Comparison Report</h1>
+        <p>Generated on: {{ generation_time }}</p>
+
+        <div class="section">
+            <h2>Experiment Summary</h2>
+            <p><strong>Model:</strong> {{ model_name }}</p>
+            <p><strong>Features Varied:</strong></p>
+            <ul>
+                {% for feature, values in features_varied.items() %}
+                <li><strong>{{ feature }}:</strong> {{ values | join(', ') }}</li>
+                {% endfor %}
+            </ul>
+            <p><strong>Metrics Measured:</strong> {{ metrics_measured | join(', ') }}</p>
+            <p><strong>Prompts Used:</strong></p>
+            <ul>
+                {% for prompt in prompts_used %}
+                <li>{{ prompt }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        {% for method_name, method_data in comparison_results.items() %}
+        <div class="section">
+            <h3>Comparison Method: {{ method_name }}</h3>
+            {% if method_data.aggregated_data_html %}
+            <h4>Aggregated Data</h4>
+            {{ method_data.aggregated_data_html | safe }}
+            {% endif %}
+
+            {% if method_data.plots %}
+            <h4>Plots</h4>
+            <div class="plot-container">
+                {% for plot_data in method_data.plots %}
+                <p>{{ plot_data.title }}</p>
+                <img src="data:image/png;base64,{{ plot_data.image_base64 }}" alt="{{ plot_data.title }}">
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if method_data.sample_outputs %}
+            <h4>Sample Outputs</h4>
+            {% for prompt, output_text in method_data.sample_outputs.items() %}
+                <h5>Prompt:</h5>
+                <pre>{{ prompt }}</pre>
+                <h5>Generated Text:</h5>
+                <pre>{{ output_text }}</pre>
+            {% endfor %}
+            {% endif %}
+        </div>
+        {% endfor %}
+
+        {% if raw_data_html %}
+        <div class="section">
+            <h2>Raw Data</h2>
+            {{ raw_data_html | safe }}
+        </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>
